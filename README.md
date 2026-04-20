@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # claude-skill-spring-boot-starter
 Claude 携带skill对话
 =======
