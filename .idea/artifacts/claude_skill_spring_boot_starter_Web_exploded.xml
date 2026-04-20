@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="claude-skill-spring-boot-starter:Web exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/claude_skill_spring_boot_starter_Web_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="claude-skill-spring-boot-starter/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="claude-skill-spring-boot-starter" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

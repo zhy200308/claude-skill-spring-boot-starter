@@ -1,0 +1,52 @@
+# ╔══════════════════════════════════════════════════════════════╗
+# ║        Claude Skill Starter — 完整配置参考                     ║
+# ║  集成方在自己的 application.yml 中按需覆盖以下配置                  ║
+# ╚══════════════════════════════════════════════════════════════╝
+
+claude:
+  # ── API 配置 ──────────────────────────────────────────────────
+  api-key: ${CLAUDE_API_KEY:your-api-key-here}
+  api-url: https://api.anthropic.com/v1/messages
+  model: claude-sonnet-4-20250514
+  anthropic-version: "2023-06-01"
+  max-tokens: 4096
+  timeout-seconds: 120
+
+  # ── 代理配置 ──────────────────────────────────────────────────
+  proxy:
+    # mode 可选值：
+    #   SYSTEM  - 默认，自动读取系统代理（JVM属性或环境变量）
+    #   CUSTOM  - 使用下方 host/port
+    #   NONE    - 强制直连
+    mode: SYSTEM
+
+    # CUSTOM 模式下填写：
+    # host: 127.0.0.1
+    # port: 7890
+    # type: HTTP        # HTTP 或 SOCKS5
+    # username:         # 可选，代理认证
+    # password:
+
+  # ── Skill 配置 ────────────────────────────────────────────────
+  skill:
+    dir: skills            # 相对路径时基于 src/main/resources，默认 src/main/resources/skills
+    auto-load: true        # 启动时自动扫描加载
+    watch-dir: false       # 是否监听目录热加载（实验性）
+
+  # ── 会话存储配置 ──────────────────────────────────────────────
+  session:
+    type: MEMORY           # MEMORY（默认）或 CUSTOM（注入自定义 Bean）
+    max-size: 1000         # 最大会话数（LRU淘汰）
+    ttl-minutes: 60        # 会话过期时间（0=不过期）
+    max-turns-per-session: 50  # 每会话最多保留轮数
+
+  # ── Web 端点配置 ──────────────────────────────────────────────
+  web:
+    enabled: true          # false 则不注册任何 REST 端点
+    base-path: /claude     # API 路径前缀
+
+# ── 系统代理方式一：JVM 属性（在启动参数中设置）────────────────────
+# java -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=7890 -jar app.jar
+
+# ── 系统代理方式二：环境变量 ────────────────────────────────────
+# export HTTPS_PROXY=http://127.0.0.1:7890

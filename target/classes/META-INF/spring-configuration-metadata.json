@@ -1,0 +1,190 @@
+{
+  "groups": [
+    {
+      "name": "claude",
+      "type": "com.claude.skill.config.ClaudeProperties",
+      "sourceType": "com.claude.skill.config.ClaudeProperties"
+    },
+    {
+      "name": "claude.proxy",
+      "type": "com.claude.skill.config.ClaudeProperties$Proxy",
+      "sourceType": "com.claude.skill.config.ClaudeProperties",
+      "sourceMethod": "getProxy()"
+    },
+    {
+      "name": "claude.session",
+      "type": "com.claude.skill.config.ClaudeProperties$Session",
+      "sourceType": "com.claude.skill.config.ClaudeProperties",
+      "sourceMethod": "getSession()"
+    },
+    {
+      "name": "claude.skill",
+      "type": "com.claude.skill.config.ClaudeProperties$Skill",
+      "sourceType": "com.claude.skill.config.ClaudeProperties",
+      "sourceMethod": "getSkill()"
+    },
+    {
+      "name": "claude.web",
+      "type": "com.claude.skill.config.ClaudeProperties$Web",
+      "sourceType": "com.claude.skill.config.ClaudeProperties",
+      "sourceMethod": "getWeb()"
+    },
+    {
+      "name": "claude.web.springdoc",
+      "type": "com.claude.skill.config.ClaudeProperties$Web$Springdoc",
+      "sourceType": "com.claude.skill.config.ClaudeProperties$Web",
+      "sourceMethod": "getSpringdoc()"
+    }
+  ],
+  "properties": [
+    {
+      "name": "claude.anthropic-version",
+      "type": "java.lang.String",
+      "sourceType": "com.claude.skill.config.ClaudeProperties",
+      "defaultValue": "2023-06-01"
+    },
+    {
+      "name": "claude.api-key",
+      "type": "java.lang.String",
+      "sourceType": "com.claude.skill.config.ClaudeProperties"
+    },
+    {
+      "name": "claude.api-url",
+      "type": "java.lang.String",
+      "sourceType": "com.claude.skill.config.ClaudeProperties",
+      "defaultValue": "https:\/\/api.anthropic.com\/v1\/messages"
+    },
+    {
+      "name": "claude.max-tokens",
+      "type": "java.lang.Integer",
+      "sourceType": "com.claude.skill.config.ClaudeProperties",
+      "defaultValue": 4096
+    },
+    {
+      "name": "claude.model",
+      "type": "java.lang.String",
+      "sourceType": "com.claude.skill.config.ClaudeProperties",
+      "defaultValue": "claude-sonnet-4-20250514"
+    },
+    {
+      "name": "claude.proxy.host",
+      "type": "java.lang.String",
+      "sourceType": "com.claude.skill.config.ClaudeProperties$Proxy"
+    },
+    {
+      "name": "claude.proxy.mode",
+      "type": "com.claude.skill.config.ClaudeProperties$Proxy$ProxyMode",
+      "description": "代理模式: SYSTEM - 使用系统代理（默认，读取 http.proxyHost \/ HTTPS_PROXY 等环境变量） CUSTOM - 使用下方自定义 host\/port NONE - 强制直连，忽略系统代理",
+      "sourceType": "com.claude.skill.config.ClaudeProperties$Proxy"
+    },
+    {
+      "name": "claude.proxy.password",
+      "type": "java.lang.String",
+      "sourceType": "com.claude.skill.config.ClaudeProperties$Proxy"
+    },
+    {
+      "name": "claude.proxy.port",
+      "type": "java.lang.Integer",
+      "sourceType": "com.claude.skill.config.ClaudeProperties$Proxy",
+      "defaultValue": 7890
+    },
+    {
+      "name": "claude.proxy.type",
+      "type": "java.lang.String",
+      "sourceType": "com.claude.skill.config.ClaudeProperties$Proxy",
+      "defaultValue": "HTTP"
+    },
+    {
+      "name": "claude.proxy.username",
+      "type": "java.lang.String",
+      "sourceType": "com.claude.skill.config.ClaudeProperties$Proxy"
+    },
+    {
+      "name": "claude.session.max-size",
+      "type": "java.lang.Integer",
+      "description": "最大会话数（MEMORY模式下LRU淘汰）",
+      "sourceType": "com.claude.skill.config.ClaudeProperties$Session",
+      "defaultValue": 1000
+    },
+    {
+      "name": "claude.session.max-turns-per-session",
+      "type": "java.lang.Integer",
+      "description": "每个会话最多保留的消息轮数",
+      "sourceType": "com.claude.skill.config.ClaudeProperties$Session",
+      "defaultValue": 50
+    },
+    {
+      "name": "claude.session.ttl-minutes",
+      "type": "java.lang.Integer",
+      "description": "会话过期时间（分钟），0=不过期",
+      "sourceType": "com.claude.skill.config.ClaudeProperties$Session",
+      "defaultValue": 60
+    },
+    {
+      "name": "claude.session.type",
+      "type": "com.claude.skill.config.ClaudeProperties$Session$SessionType",
+      "description": "存储类型: MEMORY - 内存（默认，重启丢失） CUSTOM - 由集成方注入自定义 SessionStore Bean",
+      "sourceType": "com.claude.skill.config.ClaudeProperties$Session"
+    },
+    {
+      "name": "claude.skill.auto-load",
+      "type": "java.lang.Boolean",
+      "description": "启动时是否自动扫描加载",
+      "sourceType": "com.claude.skill.config.ClaudeProperties$Skill",
+      "defaultValue": true
+    },
+    {
+      "name": "claude.skill.dir",
+      "type": "java.lang.String",
+      "description": ".skill 文件存放目录",
+      "sourceType": "com.claude.skill.config.ClaudeProperties$Skill",
+      "defaultValue": "skills"
+    },
+    {
+      "name": "claude.skill.watch-dir",
+      "type": "java.lang.Boolean",
+      "description": "是否监听目录变化热加载（需要集成方自行启用）",
+      "sourceType": "com.claude.skill.config.ClaudeProperties$Skill",
+      "defaultValue": false
+    },
+    {
+      "name": "claude.timeout-seconds",
+      "type": "java.lang.Integer",
+      "sourceType": "com.claude.skill.config.ClaudeProperties",
+      "defaultValue": 120
+    },
+    {
+      "name": "claude.web.base-path",
+      "type": "java.lang.String",
+      "description": "API 路径前缀",
+      "sourceType": "com.claude.skill.config.ClaudeProperties$Web",
+      "defaultValue": "\/claude"
+    },
+    {
+      "name": "claude.web.enabled",
+      "type": "java.lang.Boolean",
+      "description": "是否启用内置 REST 端点",
+      "sourceType": "com.claude.skill.config.ClaudeProperties$Web",
+      "defaultValue": true
+    },
+    {
+      "name": "claude.web.springdoc.enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.claude.skill.config.ClaudeProperties$Web$Springdoc",
+      "defaultValue": true
+    },
+    {
+      "name": "claude.web.springdoc.group",
+      "type": "java.lang.String",
+      "sourceType": "com.claude.skill.config.ClaudeProperties$Web$Springdoc",
+      "defaultValue": "claude-skill"
+    },
+    {
+      "name": "claude.web.springdoc.package-to-scan",
+      "type": "java.lang.String",
+      "sourceType": "com.claude.skill.config.ClaudeProperties$Web$Springdoc",
+      "defaultValue": "com.claude.skill.web"
+    }
+  ],
+  "hints": []
+}
